@@ -14,12 +14,10 @@ An app to help home cooks to find recipes using the ingredients that they have o
 ## Screenshots
 
 ### Wireframe
-![image](https://i.imgur.com/bUHk6pr.png)
+
 
 ### Completed Project
-![image](https://i.imgur.com/WUTiE2L.png)
-![image](https://i.imgur.com/EtNQ5Ks.png)
-![image](https://i.imgur.com/WUTiE2L.png)
+
 
 
 
