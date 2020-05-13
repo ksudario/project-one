@@ -1,52 +1,21 @@
-/*----- constants -----*/
-
-/*----- app's state (variables) -----*/
-
-let recipeData, userInput;
-
-/*----- cached element references -----*/
-
-const $food = $('#food');
-const $input = $('input[type="text"]') 
-
-/*----- event listeners -----*/
-
-$('form').on('submit', handleGetData) 
-
-/*----- functions -----*/
-
-function handleGetData(event) {
-    event.preventDefault(); 
-    if($input.val()=== "") return; 
-   userInput = ($input.val())
-   $input.val(""); //clear input
-    $.ajax({
-        url: 'https://api.spoonacular.com/recipes/search?query=' + userInput '&apiKey=f95e57ef771341bda59fb9162db6da94'
-    }).then(function(data){
-       recipeData = data;
-        render();
-    }, function(error) {
-        console.log(error)
-        
+$(document).ready(function(){
+    $('#btn').click(function(e){
+        var search = $("#input").val();
+        $('.food').html('');
+        $.ajax({
+          url: 'https://api.spoonacular.com/recipes/search?query='+search+'&number=5&apiKey=f95e57ef771341bda59fb9162db6da94'
+      }).then(function(data){
+          // alert(data.results[0].title);
+          for (var i = 0; i <5; i++) {
+          var   dat ='<dl><dt>Recipe:'+data.results[i].title+'</dt><dd>Ready In Minutes: '+data.results[i].readyInMinutes+'</dd><dd>Servings: '+data.results[i].servings+'</dd><dd>SourceUrl:<a href="'+data.results[i].sourceUrl+'" target="_blank">Visit Here </a></dd><dd>image:<img src="'+data.baseUri+''+data.results[i].image+'" alt="" style="width: 10%;height: auto;"></dd></dl><hr>';
+              $('.food').append(dat);
+          }
+          
+          // alert(data.results);
+      }, 
+      function(error) {
+          console.log(error)
+      });
+      
     });
-}
-function render() {
-    $food.html(recipeData.results[0].title);
-    
-}
-
-
-
-
-/*
-
-$.ajax({
-    url: 'https://api.spoonacular.com/recipes/search?query=cheese&number=2&apiKey=f95e57ef771341bda59fb9162db6da94'
-
-}).then(function(data){
-    $food.html(data.results[0].title)
-
-}, function(error) {
-    console.log(error)
-})
-*/
+  });
