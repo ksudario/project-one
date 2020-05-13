@@ -8,8 +8,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url(https://i.imgur.com/kJnspUr.png);
-  background-size: cover;
+  background-color: #e3e1c6;
   }
 
 section {
@@ -47,6 +46,14 @@ header > h1 {
   margin-right: auto;
   width: 850px;
   height: 400px;
+  border: 10px solid grey;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.food {
+  margin-left: 400px;
+  font-size: 24px;
 }
 
 .text {
@@ -65,6 +72,24 @@ header > h1 {
   font-size: 32px;
   font-weight: bold;
   text-align: center;
+}
+
+#input{
+  width: 350px;  
+  font-size: 32px;
+  font-family: 'Roboto Condensed', Helvetica;
+  border-color: black;
+  margin-left: 400px;
+  margin-bottom: 50px;
+ 
+}
+#btn {
+  width: 300px;  
+  font-size: 32px;
+  font-family: 'Roboto Condensed', Helvetica;
+  border-color: black;
+  background-color: lightgreen;
+  margin-bottom: 50px;
 }
 
 footer {
